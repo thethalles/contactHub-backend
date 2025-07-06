@@ -12,7 +12,7 @@ import br.com.sp.gov.fatec.itu.contacthub_backend.repositories.spec.ContatoSpecs
 @Service
 public class ContatoService {
     
-    private ContatoRepository contatoRepository;
+    private final ContatoRepository contatoRepository;
 
     public ContatoService(ContatoRepository contatoRepository) {
         this.contatoRepository = contatoRepository;

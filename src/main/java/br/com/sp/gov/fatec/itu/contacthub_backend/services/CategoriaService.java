@@ -8,9 +8,9 @@ import br.com.sp.gov.fatec.itu.contacthub_backend.entities.Categoria;
 import br.com.sp.gov.fatec.itu.contacthub_backend.repositories.CategoriaRepository;
 
 @Service
-public class CategoriaService {
+public final class CategoriaService {
 
-    private final CategoriaRepository categoriaRepository;
+    private CategoriaRepository categoriaRepository;
 
     public CategoriaService(CategoriaRepository categoriaRepository) {
         this.categoriaRepository = categoriaRepository;
