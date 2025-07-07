@@ -1,7 +1,6 @@
 package br.com.sp.gov.fatec.itu.contacthub_backend.entities;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -12,8 +11,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
 
 @Entity
 public class Contato {
@@ -23,9 +20,6 @@ public class Contato {
 
     @Column(nullable = false, length = 150)
     private String nome;
-
-    @Column(length = 255)
-    private String fotoUrl;
 
     @Column(length = 100)
     private String emailPrincipal;
@@ -54,11 +48,6 @@ public class Contato {
     @JoinColumn(name = "categoria_id") // Chave estrangeira para a categoria
     private Categoria categoria;
 
-    @Column(updatable = false)
-    private LocalDateTime dataCadastro;
-
-    private LocalDateTime dataAtualizacao;
-
     //Construtor
     public Contato() {
     }
@@ -78,14 +67,6 @@ public class Contato {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getFotoUrl() {
-        return fotoUrl;
-    }
-
-    public void setFotoUrl(String fotoUrl) {
-        this.fotoUrl = fotoUrl;
     }
 
     public String getEmailPrincipal() {
@@ -158,32 +139,6 @@ public class Contato {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
-    }
-
-    public LocalDateTime getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(LocalDateTime dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public LocalDateTime getDataAtualizacao() {
-        return dataAtualizacao;
-    }
-
-    public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
-        this.dataAtualizacao = dataAtualizacao;
-    }
-
-    @PrePersist // PrePersist é chamado antes de persistir a entidade no banco de dados
-    public void prePersist() {
-        dataCadastro = LocalDateTime.now();
-    }
-
-    @PreUpdate // PreUpdate é chamado antes de atualizar a entidade
-    public void preUpdate() {
-        dataAtualizacao = LocalDateTime.now();
     }
 
     // Equals e HashCode

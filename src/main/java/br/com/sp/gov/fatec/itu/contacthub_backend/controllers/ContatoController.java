@@ -42,7 +42,7 @@ public class ContatoController {
     }
 
     @PostMapping
-    public ResponseEntity<Contato> criar(@RequestParam Contato contato){
+    public ResponseEntity<Contato> criar(@RequestBody Contato contato){
         Contato novo = contatoService.criar(contato);
         return ResponseEntity.created(null).body(novo);
     }

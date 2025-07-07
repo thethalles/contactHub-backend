@@ -53,7 +53,6 @@ public class ContatoService {
         Contato contatoExistente = buscarPorId(id);
 
         contatoExistente.setNome(contato.getNome());
-        contatoExistente.setFotoUrl(contato.getFotoUrl());
         contatoExistente.setEmailPrincipal(contato.getEmailPrincipal());
         contatoExistente.setTelefonePrincipal(contato.getTelefonePrincipal());
         contatoExistente.setEmpresa(contato.getEmpresa());
